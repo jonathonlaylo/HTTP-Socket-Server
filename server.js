@@ -7,7 +7,7 @@ const content = require( "./content.js");
 
     socket.setEncoding('utf8');
     socket.on('data', (chunk) => {
-      // console.log(`${chunk}`);
+      console.log(`${chunk}`);
 
       let headers = chunk.split('\n');
       console.log(`HEADERS: ${headers[0]}`);
@@ -24,8 +24,11 @@ const content = require( "./content.js");
       socket.write(`\n\n`);
       socket.write(content.index_html);
       socket.end();
-    });
 
+      function function_name(argument) {
+        // body...
+      }
+    });
   });
 
   server.listen(8080, "0.0.0.0", () =>{

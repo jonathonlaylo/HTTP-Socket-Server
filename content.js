@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 module.exports.index_html = `<!DOCTYPE html>
 <html lang="en">
 <head>
