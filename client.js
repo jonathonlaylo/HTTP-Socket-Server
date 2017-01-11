@@ -9,7 +9,6 @@ client.on('connect', () => {
 });
 
 client.on('data', (chunk) => {
-
 });
 
 client.on('end', () => {

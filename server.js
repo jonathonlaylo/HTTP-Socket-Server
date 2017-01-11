@@ -1,13 +1,13 @@
 /*jshint esversion: 6 */
 const net = require(`net`);
 const content = require( "./content.js");
-// const PORT = process.env.POR || 8080;
+const PORT = process.env.POR || 8080;
 
 let server = net.createServer((socket) =>{
 
   socket.setEncoding('utf8');
   socket.on('data', (chunk) => {
-  console.log(`${chunk}`);
+  // console.log(`${chunk}`);
   let headers = chunk.split('\n');
   // console.log(`HEADERS: ${headers[0]}`);
   let method = headers[0].split(' ')[0];
@@ -23,7 +23,6 @@ let server = net.createServer((socket) =>{
   // socket.write(content.index_html);
   switch(uri){
       case "/index_html":
-      socket.write(`Content-Length: ${content.index_html.length}`);
       socket.write(content.index_html);
       break;
       case "/helium_html":
@@ -39,6 +38,6 @@ let server = net.createServer((socket) =>{
   socket.end();
   });
 });
-server.listen(8080, "0.0.0.0", () =>{
+server.listen(PORT, "0.0.0.0", () =>{
   // console.log(`the current server is open`);
 });
